@@ -2,8 +2,7 @@ import React from 'react'
 
 const Home = () => {
 
-    const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+    
 
   const handleLogin = (e) => {
     e.preventDefault();
