@@ -23,7 +23,7 @@ const Home = () => {
 
   return (
     <>
-    <div className='w-[full] h-screen md:flex items-center justify-center space-x-10 '>
+    <div className='w-[full] h-screen md:flex items-center justify-center space-x-10'>
         <div className='select-none md:flex hidden'> <img src={images[imageIndex]} alt=""/>
         </div>
         <div className="flex flex-col items-center justify-center min-h-screen bg-white select-none">
