@@ -56,6 +56,16 @@ app.post("/register", function(req, res){
     // const userdata = new UserModel({username, password})
 })
 
+app.post("/logout", (req, res) => {
+    req.session.destroy(err => {
+        if(err){
+            console.error(err);
+            return res.status(500).json({message: "failed to Logout"})
+        }
+        res.redirect('/');
+    })
+})
+
 app.listen(PORT, () => {
     console.log(`console is running on port: ${PORT}`);
 });
