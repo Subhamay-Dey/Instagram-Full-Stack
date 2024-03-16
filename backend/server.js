@@ -4,7 +4,7 @@ const body_parser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const UserModel = require("./index/User.model");
+const UserModel = require("./index");
 const bcrypt = require("bcrypt");
 
 const PORT = 8080 ||  process.env.PORT;
@@ -14,7 +14,7 @@ app.use(cors());
 
 const express_session = require("express-session");
 
-app.use(session({
+app.use(express_session({
     resave: false,
     saveUninitiated: false,
     secret: "secret",
@@ -69,4 +69,3 @@ app.post("/logout", (req, res) => {
 app.listen(PORT, () => {
     console.log(`console is running on port: ${PORT}`);
 });
-
