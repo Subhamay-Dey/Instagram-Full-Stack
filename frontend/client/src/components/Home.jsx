@@ -5,22 +5,19 @@ import img3 from  "../images/img3.png"
 import img4 from  "../images/img4.png"
 import gsap from 'gsap';
 
-import navigate from './navigate';
-
 const images = [
   img1,img2,img3,img4
 ]
 
 const Home = () => {
 
-  const [image, setImage] = React.useState({img1});
   const [imageIndex, setImageIndex] = React.useState(0);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
       setImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 4000);
-
+    
     return () => clearInterval(interval);
   }, [images.length]);
 

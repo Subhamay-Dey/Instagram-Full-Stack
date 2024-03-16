@@ -6,8 +6,11 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const UserModel = require("./index");
 const bcrypt = require("bcrypt");
+const postsModel = require("./posts")
 
 const PORT = 8080 ||  process.env.PORT;
+
+mongoose.connect("mongodb://127.0.0.1:27017/Instadatabase");
 
 app.use(bodyParser.json());
 app.use(cors());
