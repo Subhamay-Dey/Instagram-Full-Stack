@@ -15,7 +15,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/Instadatabase");
 app.use(bodyParser.json());
 app.use(cors());
 
-const express_session = require("express-session");
+const session = require("express-session");
 
 const register = async(req, res) => {
 
@@ -38,7 +38,7 @@ const register = async(req, res) => {
     }
 }
 
-app.use(express_session({
+app.use(session({
     resave: false,
     saveUninitiated: false,
     secret: "secret",
@@ -48,25 +48,14 @@ app.post("/login", async function(req, res){
     var {username, password} = req.body;
 
     try{
-        const fullname = await UserModel.findOne({fullname});
-
-        if(!fullname){
-            res.status(404).json({message: "Fullname not found"});
-        }
-
-        const user = await UserModel.findOne({username});
-
+        const user = await UserModel.findOne({username, password});
+        
         if(!user){
-            res.status(404).json({message: "Username not found"});
+            return res.status(404).json({message: "User not found"});
         }
+            req.session.user = {username: user.username, password: user.password};
 
-        const isPasswordValid = await bcrypt.compare(password, UserModel.password)
-
-        if(!isPasswordValid){
-            res.status(400).json({message: "password is incorrect"})
-        }
-
-        res.status(200).json({message: "Login successful"})
+            res.json({message:"Login successfull"});
     }
     catch(error){
         console.log(error);

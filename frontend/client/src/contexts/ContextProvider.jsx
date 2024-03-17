@@ -11,6 +11,7 @@ function ContextProvider({children}) {
     const [fullname, setFname] = useState("");
     const [username, setUname] = useState("");
     const [password, setPaswrd] = useState("");
+    const [message, setMessage] = useState("");
 
     const handleRegister = async() => {
         try{
@@ -31,12 +32,14 @@ function ContextProvider({children}) {
             const response = await axios.post("http://localhost:3000/login",{
                 username, password,
             });
+            setMessage(response.data.message)
             toast.success("Login successful");
-            window.location("/profile");
+            window.location = "/home";
         }
         catch(error){
             toast.error("Invalid Username or Password");
         }
+        
     }
 
     const handleLogout = async() => {
@@ -53,7 +56,7 @@ function ContextProvider({children}) {
     }
 
     return(
-        <UseContext.Provider value={{fullname, setFname, username, setUname, password, setPaswrd, isAuthentication, setisAuthentication , handleRegister}}>
+        <UseContext.Provider value={{fullname, setFname, username, setUname, password, setPaswrd, isAuthentication, setisAuthentication , handleRegister, handleLogin}}>
             {children}
         </UseContext.Provider>
     )
