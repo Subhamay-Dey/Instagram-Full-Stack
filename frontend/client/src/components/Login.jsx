@@ -3,11 +3,9 @@ import img1 from "../images/img1.webp";
 import img2  from "../images/img2.jpg";
 import img3 from  "../images/img3.png";
 import img4 from  "../images/img4.png";
-import gsap from 'gsap';
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import  UseContext from  './UseContext';
 
 const images = [
   img1,img2,img3,img4

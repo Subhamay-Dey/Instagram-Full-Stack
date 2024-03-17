@@ -1,35 +1,35 @@
 import React from 'react';
-import { useState } from 'react'; 
-import UseContext from "./context";
+import { useState} from 'react'; 
+import UseContext from './UseContext';
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function UseContextProvider({children}) {
+function ContextProvider({children}) {
 
     const [isAuthentication, setisAuthentication] = useState(false);
-    const [fullname, setFullname] = useState("");
-    const [username, setusername] = useState("");
-    const [password, setPassword] = useState("");
+    const [fullname, setFname] = useState("");
+    const [username, setUname] = useState("");
+    const [password, setPaswrd] = useState("");
 
-    const handleRegister = async(req, res) => {
+    const handleRegister = async() => {
         try{
-            const response = await axios.post("http://localhost:8080/register",{
-               fullname, username, password
+            const response = await axios.post("http://localhost:3000/register",{
+                fullname, username, password
             });
             setisAuthentication(true);
             toast.success(response.data.message);
-            window.location = "/profile";
+            window.location = "/home";
         }
         catch(error){
-            toast.error("Internal Server Error");
+            toast.error("voer mai re chudi");
         }
     }
 
     const handleLogin = async() => {
         try{
-            const response = await axios.post("http://localhost:8080/login",{
-                username, password
+            const response = await axios.post("http://localhost:3000/login",{
+                username, password,
             });
             toast.success("Login successful");
             window.location("/profile");
@@ -41,7 +41,7 @@ function UseContextProvider({children}) {
 
     const handleLogout = async() => {
         try{
-            const response = await axios.post("http://localhost:8080/logout",{
+            const response = await axios.post("http://localhost:3000/logout",{
             })
             setisAuthentication(false)
             toast.success("Loged Out successfully.")
@@ -53,9 +53,10 @@ function UseContextProvider({children}) {
     }
 
     return(
-        <UseContext.Provider value={{fullname, setFullname, username, setusername, password, setPassword, isAuthentication, setisAuthentication}}>
+        <UseContext.Provider value={{fullname, setFname, username, setUname, password, setPaswrd, isAuthentication, setisAuthentication , handleRegister}}>
             {children}
         </UseContext.Provider>
     )
-
 }
+
+export default ContextProvider;

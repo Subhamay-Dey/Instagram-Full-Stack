@@ -8,7 +8,7 @@ const UserModel = require("./index");
 const bcrypt = require("bcrypt");
 const postsModel = require("./posts");
 
-const PORT = 8080 || process.env.PORT;
+const PORT = 3000 || process.env.PORT;
 
 mongoose.connect("mongodb://127.0.0.1:27017/Instadatabase");
 
@@ -16,6 +16,27 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const express_session = require("express-session");
+
+const register = async(req, res) => {
+
+    const {fullname, username, password} = req.body
+    
+    try{
+        const existingUser = await UserModel.findOne({username});
+
+        if(existingUser){
+            res.status(400).json({message:"User already exists"});
+        }
+        
+            const user = new UserModel({fullname, username, password});
+            await user.save();
+            res.status(201).json({message:"User created successfully!"});
+        
+    }
+    catch(error){
+        console.log(error);
+    }
+}
 
 app.use(express_session({
     resave: false,
@@ -53,24 +74,7 @@ app.post("/login", async function(req, res){
     }
 })
 
-app.post("/register", async function(req, res){
-
-    var {fullname, username, password} = req.body
-    try{
-        const existingUser = await UserModel.findOne({username})
-        if(existingUser){
-            res.status(404).message( "User already exists");
-        }
-        else{
-            const user = new UserModel({fullname, username, password});
-
-        }
-    }
-    catch(error){
-
-    }
-    
-})
+app.post("/register", register)
 
 app.post("/logout", (req, res) => {
     req.session.destroy(err => {

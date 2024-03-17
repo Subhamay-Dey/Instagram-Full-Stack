@@ -1,10 +1,16 @@
 import React from 'react'
-import {useNavigate} from "react-router-dom";
+import { useContext } from 'react';
+import UseContext from '../contexts/UseContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
+
+  const {fullname, setFname, username, setUname, password, setPaswrd, handleRegister} = useContext(UseContext);
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-white select-none">
-      {/* <ToastContainer/> */}
+      <ToastContainer/>
       <header className="py-6">
         {/* Your logo */}
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdJMI9-ZdTJmpzVfjX6AL4rwRP8l-vWYDklw&usqp=CAU" alt="Logo" className="w-32" />
@@ -15,35 +21,28 @@ const SignUp = () => {
           <input
             type="text"
             placeholder="Full Name"
-            // value={fullName}
-            // onChange={(e) => setFullName(e.target.value)}
+            value={fullname}
+            onChange={(e) => setFname(e.target.value)}
             className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
           />
           <input
             type="text"
             placeholder="Username"
-            // value={username}
-            // onChange={(e) => setUsername(e.target.value)}
-            className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            // value={email}
-            // onChange={(e) => setEmail(e.target.value)}
+            value={username}
+            onChange={(e) => setUname(e.target.value)}
             className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
           />
           <input
             type="password"
             placeholder="Password"
-            // value={password}
-            // onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            onChange={(e) => setPaswrd(e.target.value)}
             className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
           />
-          <h1 className='text-xl text-center'>Already a user <a className=' decoration-black underline cursor-pointer' href="/login">Login</a></h1>
+          <h1 className='text-xl text-center'>Already a user <a className=' decoration-black underline cursor-pointer' href='/login'>Login</a></h1>
           <button
             type="button"
-            // onClick={handleRegister}
+            onClick={handleRegister}
             className="w-full bg-blue-500 text-white py-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
           >
             Register
