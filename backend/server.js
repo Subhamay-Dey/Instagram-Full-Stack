@@ -24,9 +24,15 @@ app.use(express_session({
 }));
 
 app.post("/login", async function(req, res){
-    var {username, password} = req.body;
+    var {fullname, username, password} = req.body;
 
     try{
+        const fullname = await UserModel.findOne({fullname});
+
+        if(!fullname){
+            res.status(404).json({message: "Fullname not found"});
+        }
+
         const user = await UserModel.findOne({username});
 
         if(!user){
@@ -49,6 +55,7 @@ app.post("/login", async function(req, res){
 
 app.post("/register", function(req, res){
     var userdata = new UserModel({
+        fullname: req.body.fullname,
         username: req.body.username,
         password: req.body.password,
     })

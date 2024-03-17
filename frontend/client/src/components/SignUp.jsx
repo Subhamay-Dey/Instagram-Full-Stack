@@ -1,42 +1,55 @@
 import React from 'react'
+import {useNavigate} from "react-router-dom";
 
 const SignUp = () => {
   return (
-    <div className="flex h-screen bg-gray-100">
-      <div className="m-auto p-8 bg-white rounded-lg shadow-lg">
-        <h1 className="text-3xl font-semibold mb-4 text-center">Instagram</h1>
-        <form className="space-y-4">
-          <div>
-            <input
-              type="text"
-              placeholder="Phone number, username, or email"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
-            />
-          </div>
-          <div>
-            <input
-              type="password"
-              placeholder="Password"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
-            />
-          </div>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white select-none">
+      {/* <ToastContainer/> */}
+      <header className="py-6">
+        {/* Your logo */}
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdJMI9-ZdTJmpzVfjX6AL4rwRP8l-vWYDklw&usqp=CAU" alt="Logo" className="w-32" />
+      </header>
+      <main className="bg-gray-50 p-8 rounded-lg shadow-lg">
+        <h2 className="text-2xl font-semibold mb-6 text-center">Create an Account</h2>
+        <div className="space-y-4">
+          <input
+            type="text"
+            placeholder="Full Name"
+            // value={fullName}
+            // onChange={(e) => setFullName(e.target.value)}
+            className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+          />
+          <input
+            type="text"
+            placeholder="Username"
+            // value={username}
+            // onChange={(e) => setUsername(e.target.value)}
+            className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            // value={email}
+            // onChange={(e) => setEmail(e.target.value)}
+            className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            // value={password}
+            // onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+          />
+          <h1 className='text-xl text-center'>Already a user <a className=' decoration-black underline cursor-pointer' href="/login">Login</a></h1>
           <button
-            type="submit"
-            className="w-full py-2 px-4 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
+            type="button"
+            // onClick={handleRegister}
+            className="w-full bg-blue-500 text-white py-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
           >
-            Log In
+            Register
           </button>
-        </form>
-        <div className="text-center mt-4">
-          <p className="text-gray-600">Forgot your password?</p>
         </div>
-        <div className="flex justify-center mt-4">
-          <p className="text-gray-600">Don't have an account? </p>
-          <a href="#" className="text-indigo-500 font-semibold">
-            Sign up
-          </a>
-        </div>
-      </div>
+      </main>
     </div>
   )
 }

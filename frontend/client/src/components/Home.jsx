@@ -1,9 +1,12 @@
-import React from 'react'
-import img1 from "../images/img1.webp"
-import img2  from "../images/img2.jpg"
-import img3 from  "../images/img3.png"
-import img4 from  "../images/img4.png"
+import React from 'react';
+import img1 from "../images/img1.webp";
+import img2  from "../images/img2.jpg";
+import img3 from  "../images/img3.png";
+import img4 from  "../images/img4.png";
 import gsap from 'gsap';
+import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const images = [
   img1,img2,img3,img4
@@ -43,7 +46,7 @@ const Home = () => {
               placeholder="Password"
               className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
             />
-            <h1 className='text-xl text-center'>New user <a className=' decoration-black underline cursor-pointer' href="/">Register</a></h1>
+            <h1 className='text-xl text-center'>New user <a className=' decoration-black underline cursor-pointer' href="/register">Register</a></h1>
             <button
               type="button"
               className="w-full bg-blue-500 text-white py-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
