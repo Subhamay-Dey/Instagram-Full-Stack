@@ -6,9 +6,9 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const UserModel = require("./index");
 const bcrypt = require("bcrypt");
-const postsModel = require("./posts")
+const postsModel = require("./posts");
 
-const PORT = 8080 ||  process.env.PORT;
+const PORT = 8080 || process.env.PORT;
 
 mongoose.connect("mongodb://127.0.0.1:27017/Instadatabase");
 
@@ -24,7 +24,7 @@ app.use(express_session({
 }));
 
 app.post("/login", async function(req, res){
-    var {fullname, username, password} = req.body;
+    var {username, password} = req.body;
 
     try{
         const fullname = await UserModel.findOne({fullname});
@@ -53,17 +53,23 @@ app.post("/login", async function(req, res){
     }
 })
 
-app.post("/register", function(req, res){
-    var userdata = new UserModel({
-        fullname: req.body.fullname,
-        username: req.body.username,
-        password: req.body.password,
-    })
+app.post("/register", async function(req, res){
 
-    //or
+    var {fullname, username, password} = req.body
+    try{
+        const existingUser = await UserModel.findOne({username})
+        if(existingUser){
+            res.status(404).message( "User already exists");
+        }
+        else{
+            const user = new UserModel({fullname, username, password});
 
-    // var {username, password} = req.body
-    // const userdata = new UserModel({username, password})
+        }
+    }
+    catch(error){
+
+    }
+    
 })
 
 app.post("/logout", (req, res) => {
