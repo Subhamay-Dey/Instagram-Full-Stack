@@ -39,7 +39,7 @@ const SignUp = () => {
             onChange={(e) => setPaswrd(e.target.value)}
             className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
           />
-          <h1 className='text-xl text-center'>Already a user <a className=' decoration-black underline cursor-pointer' href='/login'>Login</a></h1>
+          <h1 className='text-xl text-center'>Already a user <a className=' decoration-black underline cursor-pointer' href='/'>Login</a></h1>
           <button
             type="button"
             onClick={handleRegister}

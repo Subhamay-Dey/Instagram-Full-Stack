@@ -17,27 +17,6 @@ app.use(cors());
 
 const session = require("express-session");
 
-const register = async(req, res) => {
-
-    const {fullname, username, password} = req.body
-    
-    try{
-        const existingUser = await UserModel.findOne({username});
-
-        if(existingUser){
-            res.status(400).json({message:"User already exists"});
-        }
-        
-            const user = new UserModel({fullname, username, password});
-            await user.save();
-            res.status(201).json({message:"User created successfully!"});
-        
-    }
-    catch(error){
-        console.log(error);
-    }
-}
-
 app.use(session({
     resave: false,
     saveUninitiated: false,
@@ -62,6 +41,27 @@ app.post("/login", async function(req, res){
         res.status(501).json({message: "Server error"});
     }
 })
+
+const register = async(req, res) => {
+
+    const {fullname, username, password} = req.body
+    
+    try{
+        const existingUser = await UserModel.findOne({username});
+
+        if(existingUser){
+            res.status(400).json({message:"User already exists"});
+        }
+        
+            const user = new UserModel({fullname, username, password});
+            await user.save();
+            res.status(201).json({message:"User created successfully!"});
+        
+    }
+    catch(error){
+        console.log(error);
+    }
+}
 
 app.post("/register", register)
 

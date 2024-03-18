@@ -52,11 +52,10 @@ const Login = () => {
               onChange={(e) => setPaswrd(e.target.value)}
               className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
             />
-            <h1 className='text-xl text-center'>New user <a className=' decoration-black underline cursor-pointer'>Register</a></h1>
+            <h1 className='text-xl text-center'>New user <a className=' decoration-black underline cursor-pointer'  href='/register'>Register</a></h1>
             <button
-              className="w-full bg-blue-500 text-white py-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
-              onClick={handleLogin}
-            >
+              className="w-full bg-blue-500 text-white py-4 rounded-lg hover:bg-blue-600 transition-colors duration-300" href='/home'
+              onClick={handleLogin}>
               Login
             </button>
           </div>
