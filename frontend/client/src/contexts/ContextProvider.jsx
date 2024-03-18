@@ -48,7 +48,7 @@ function ContextProvider({children}) {
             })
             setisAuthentication(false)
             toast.success("Loged Out successfully.")
-            res.redirect("/register");
+            res.redirect("/");
         }
         catch(error){
             toast.error("Internal Server Problem");
