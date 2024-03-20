@@ -134,7 +134,7 @@ app.post("/register", register);
 
 app.post("/api/post", createPosts);
 app.get("/api/post", getAllPosts);
-app.delete("/api/posts/:id", deletePosts);
+app.delete("/api/:id", deletePosts);
 
 app.get('/profile', isAuthenticated, (req, res) => {
     res.json({message: "welcome to the profile page"});

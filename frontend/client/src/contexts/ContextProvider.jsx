@@ -80,8 +80,22 @@ function ContextProvider({children}) {
         windows.location = "/profile"
     }
 
+    const deletePosts  = (id) => {
+        axios.delete(`https://localhost:3000/api/${id}`)
+        .then(() => {
+            setAllPosts(oldPosts => {
+                const afterDelete = oldPosts.filter(post => post._id !== id);
+                return afterDelete;
+            })
+        })
+        .catch(error => {
+            console.log(error)
+        });
+    };
+
+
     return(
-        <UseContext.Provider value={{fullname, setFname, username, setUname, password, setPaswrd, isAuthentication, setisAuthentication , handleRegister, handleLogin, handleLogout}}>
+        <UseContext.Provider value={{fullname, setFname, username, setUname, password, setPaswrd, isAuthentication, setisAuthentication , handleRegister, handleLogin, handleLogout, }}>
             {children}
         </UseContext.Provider>
     )
