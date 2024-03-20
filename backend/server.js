@@ -53,9 +53,11 @@ const register = async(req, res) => {
             res.status(400).json({message:"User already exists"});
         }
         
-            const user = new UserModel({fullname, username, password});
-            await user.save();
-            res.status(201).json({message:"User created successfully!"});
+        const user = new UserModel({fullname, username, password});
+
+        await user.save();
+
+        res.status(201).json({message:"User created successfully!"});
         
     }
     catch(error){
@@ -74,6 +76,28 @@ app.post("/logout", (req, res) => {
         res.redirect('/');
     })
 })
+
+const isAuthenticated = async(req, res, next) => {
+    const {username, password} = req.body;
+
+    try{
+        const user = await UserModel.fineOne({username});
+        if(!user){
+            return res.status(401).json({error: "invalid username"});
+        }
+        if(password !== user.password){
+            return res.status(401).json({error: "Invalid Password"});
+        }
+        req.user = user;
+        next();
+    }
+    catch(error){
+        console.log(error);
+        res.status(500).json({error: 'Server error'});
+    }
+}
+
+
 
 app.listen(PORT, () => {
     console.log(`console is running on port: ${PORT}`);

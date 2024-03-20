@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useContext } from 'react';
 import UseContext from '../contexts/UseContext';
 import { ToastContainer, toast } from 'react-toastify';
@@ -9,7 +9,8 @@ const SignUp = () => {
   const {fullname, setFname, username, setUname, password, setPaswrd, handleRegister} = useContext(UseContext);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white select-none">
+    
+    <div className= "flex flex-col items-center justify-center min-h-screen bg-white select-none">
       <ToastContainer/>
       <header className="py-6">
         {/* Your logo */}

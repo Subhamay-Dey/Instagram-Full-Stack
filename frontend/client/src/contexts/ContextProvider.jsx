@@ -12,7 +12,7 @@ function ContextProvider({children}) {
     const [username, setUname] = useState("");
     const [password, setPaswrd] = useState("");
     const [message, setMessage] = useState("");
-    const [imgUrl, setImgUrl] = React.useState("");
+    const [imgUrl, setImgUrl] = useState("");
 
     const handleRegister = async() => {
         try{
