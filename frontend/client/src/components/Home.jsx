@@ -1,9 +1,10 @@
 import React from 'react'
+import SideMenuBar from './SideMenuBar'
 
 const Home = () => {
   return (
     <>
-      <div>Register Successful, welcome to our website!</div>
+      <SideMenuBar/>
     </>
   )
 }

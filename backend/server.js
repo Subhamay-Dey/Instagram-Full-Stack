@@ -136,7 +136,7 @@ app.post("/api/post", createPosts);
 app.get("/api/post", getAllPosts);
 app.delete("/api/:id", deletePosts);
 
-app.get('/profile', isAuthenticated, (req, res) => {
+app.get('/home', isAuthenticated, (req, res) => {
     res.json({message: "welcome to the profile page"});
 });
 

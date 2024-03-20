@@ -8,14 +8,14 @@ import 'react-toastify/dist/ReactToastify.css';
 function ContextProvider({children}) {
 
     const [isAuthentication, setisAuthentication] = useState(false);
-    const [fullname, setFname] = useState("");
-    const [username, setUname] = useState("");
+    const [allPosts, setAllPosts] = useState("");
+    const [videoUrl, setVideoUrl] = useState("");
     const [password, setPaswrd] = useState("");
     const [message, setMessage] = useState("");
+    const [username, setUname] = useState("");
+    const [fullname, setFname] = useState("");
     const [imgUrl, setImgUrl] = useState("");
     const [topic, setTopic] = useState("");
-    const [videoUrl, setVideoUrl] = useState("");
-    const [allPosts, setAllPosts] = useState("");
 
     const handleRegister = async() => {
         try{
@@ -43,7 +43,6 @@ function ContextProvider({children}) {
         catch(error){
             toast.error("Invalid Username or Password");
         }
-        
     }
 
     const handleLogout = async() => {
@@ -51,7 +50,7 @@ function ContextProvider({children}) {
             await axios.post("http://localhost:3000/logout");
 
             setisAuthentication(false)
-            toast.success("Loged Out successfully.")
+            toast.success("Loged Out successfully.");
             res.redirect("/");
         }
         catch(error){
@@ -60,8 +59,8 @@ function ContextProvider({children}) {
     }
 
     const getAllPosts = async() => {
-        const res = await axios.get("http://localhost:3000/api/post");
-        getAllPosts(res.data);
+        const response = await axios.get("http://localhost:3000/api/post");
+        getAllPosts(response.data);
     }
     
     const createPosts = async() => {
@@ -77,7 +76,7 @@ function ContextProvider({children}) {
             setImgUrl("");
             setVideoUrl("");
         });
-        windows.location = "/profile"
+        windows.location = "/home"
     }
 
     const deletePosts  = (id) => {
@@ -95,9 +94,9 @@ function ContextProvider({children}) {
 
 
     return(
-        <UseContext.Provider value={{fullname, setFname, username, setUname, password, setPaswrd, isAuthentication, setisAuthentication , handleRegister, handleLogin, handleLogout, }}>
+        <UseContext.Provider value={{fullname, setFname, username, setUname, password, setPaswrd, imgUrl, setImgUrl, topic, setTopic, videoUrl, setVideoUrl, allPosts, setAllPosts, isAuthentication, setisAuthentication , handleRegister, handleLogin, handleLogout, getAllPosts, createPosts, deletePosts}}>
             {children}
-        </UseContext.Provider>
+        </UseContext.Provider>                                                                                                                               
     )
 }
 
