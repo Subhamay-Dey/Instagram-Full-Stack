@@ -110,7 +110,7 @@ const createPosts = async  (req, res) => {
     }
 }
 
-const getAllPosts = async(req, res) => {
+const gettAllPosts = async(req, res) => {
     try{
         const allPosts = await postsModel.find();
         res.json(allPosts);
@@ -121,8 +121,25 @@ const getAllPosts = async(req, res) => {
     }
 }
 
+const deletePosts = async (req, res) => {
+    try{
+        const deletedPosts = await postsModel.findByIdAndDelete(req.params.id);
+        res.status(200).json(deletedPosts);
+    }
+    catch(error){
+        console.log(error);
+        res.status(404).json({message:'Failed to Delete the Post'});
+    }
+}
+
+
 app.post("/api/post", createPosts);
-app.get("/api/posts", getAllPosts);
+app.get("/api/posts", gettAllPosts);
+app.delete("/api/posts/:id", deletePosts);
+
+app.get('/profile', isAuthenticated, (req, res) => {
+    res.json({message: "welcome to the profile page"});
+})
 
 
 app.listen(PORT, () => {
