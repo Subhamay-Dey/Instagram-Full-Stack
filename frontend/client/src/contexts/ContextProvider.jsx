@@ -13,6 +13,9 @@ function ContextProvider({children}) {
     const [password, setPaswrd] = useState("");
     const [message, setMessage] = useState("");
     const [imgUrl, setImgUrl] = useState("");
+    const [topic, setTopic] = useState("");
+    const [videoUrl, setVideoUrl] = useState("");
+    const [allPosts, setAllPosts] = useState("");
 
     const handleRegister = async() => {
         try{
@@ -24,7 +27,7 @@ function ContextProvider({children}) {
             window.location = "/home";
         }
         catch(error){
-            toast.error("voer mai re chudi");
+            toast.error("registration failed");
         }
     }
 
@@ -45,8 +48,8 @@ function ContextProvider({children}) {
 
     const handleLogout = async() => {
         try{
-            const response = await axios.post("http://localhost:3000/logout",{
-            })
+            await axios.post("http://localhost:3000/logout");
+
             setisAuthentication(false)
             toast.success("Loged Out successfully.")
             res.redirect("/");
@@ -56,8 +59,29 @@ function ContextProvider({children}) {
         }
     }
 
+    const getAllPosts = async() => {
+        const res = await axios.get("http://localhost:3000/api/post");
+        getAllPosts(res.data);
+    }
+    
+    const createPosts = async() => {
+        const response = await axios.post("https://localhost:3000/api/post", {
+            topic, imgUrl, videoUrl,
+        })
+        .then(() => {
+            setAllPosts(newPost => {
+                const newArray = [...allPosts, newPost];
+                return  newArray;
+            });
+            setTopic("");
+            setImgUrl("");
+            setVideoUrl("");
+        });
+        windows.location = "/profile"
+    }
+
     return(
-        <UseContext.Provider value={{fullname, setFname, username, setUname, password, setPaswrd, isAuthentication, setisAuthentication , handleRegister, handleLogin}}>
+        <UseContext.Provider value={{fullname, setFname, username, setUname, password, setPaswrd, isAuthentication, setisAuthentication , handleRegister, handleLogin, handleLogout}}>
             {children}
         </UseContext.Provider>
     )

@@ -65,8 +65,6 @@ const register = async(req, res) => {
     }
 }
 
-app.post("/register", register)
-
 app.post("/logout", (req, res) => {
     req.session.destroy(err => {
         if(err){
@@ -97,7 +95,7 @@ const isAuthenticated = async(req, res, next) => {
     }
 }
 
-const createPosts = async  (req, res) => {
+const createPosts = async(req, res) => {
     const {topic, imgUrl, videoUrl} = req.body;
     const posts = new postsModel({topic, imgUrl, videoUrl});
 
@@ -110,7 +108,7 @@ const createPosts = async  (req, res) => {
     }
 }
 
-const gettAllPosts = async(req, res) => {
+const getAllPosts = async(req, res) => {
     try{
         const allPosts = await postsModel.find();
         res.json(allPosts);
@@ -121,7 +119,7 @@ const gettAllPosts = async(req, res) => {
     }
 }
 
-const deletePosts = async (req, res) => {
+const deletePosts = async(req, res) => {
     try{
         const deletedPosts = await postsModel.findByIdAndDelete(req.params.id);
         res.status(200).json(deletedPosts);
@@ -132,14 +130,15 @@ const deletePosts = async (req, res) => {
     }
 }
 
+app.post("/register", register);
 
 app.post("/api/post", createPosts);
-app.get("/api/posts", gettAllPosts);
+app.get("/api/post", getAllPosts);
 app.delete("/api/posts/:id", deletePosts);
 
 app.get('/profile', isAuthenticated, (req, res) => {
     res.json({message: "welcome to the profile page"});
-})
+});
 
 
 app.listen(PORT, () => {
