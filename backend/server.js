@@ -110,7 +110,20 @@ const createPosts = async  (req, res) => {
     }
 }
 
+const getAllPosts = async(req, res) => {
+    try{
+        const allPosts = await postsModel.find();
+        res.json(allPosts);
+    }
+    catch(error){
+        console.log(error);
+        res.status(404).json({message:"No Posts found"});
+    }
+}
+
 app.post("/api/post", createPosts);
+app.get("/api/posts", getAllPosts);
+
 
 app.listen(PORT, () => {
     console.log(`console is running on port: ${PORT}`);
