@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 
 const postSchema = mongoose.Schema({
-    
+    topic: String,
+    imgUrl: String,
+    videoUrl: String,
     datecreated: {
         type: Date,
         default: Date.now()

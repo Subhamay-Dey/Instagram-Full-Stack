@@ -97,7 +97,20 @@ const isAuthenticated = async(req, res, next) => {
     }
 }
 
+const createPosts = async  (req, res) => {
+    const {topic, imgUrl, videoUrl} = req.body;
+    const posts = new postsModel({topic, imgUrl, videoUrl});
 
+    try{
+        const post = await posts.save();
+        res.status(201).json(post);
+    }
+    catch(error){
+        res.status(500).json({message: "Error creating posts"});
+    }
+}
+
+app.post("/api/post", createPosts);
 
 app.listen(PORT, () => {
     console.log(`console is running on port: ${PORT}`);
