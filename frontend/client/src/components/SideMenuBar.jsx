@@ -4,7 +4,13 @@ import {useNavigate} from "react-router-dom";
 import { IoMdHome } from "react-icons/io";
 import { IoIosSearch } from "react-icons/io";
 import { MdOutlineExplore } from "react-icons/md";
-import { MdVideoLibrary } from "react-icons/md";
+import {messages_logo} from "../images/insta-messages-logo.png";
+import {reels_logo} from "../images/insta-reels-logo.png";
+import { IoMdHeartEmpty } from "react-icons/io";
+import {create_logo} from "../images/insta-create-logo.png";
+import {profile_logo} from "../images/insta-profile-logo.png";
+import { FaThreads } from "react-icons/fa6";
+
 
 const SideMenuBar = () => {
 
@@ -32,37 +38,37 @@ const SideMenuBar = () => {
     {
       id: 4,
       Name: "Reels",
-      icon: <MdVideoLibrary />,
+      icon: {reels_logo},
       route: "/reels",
     },
     {
       id: 5,
       Name: "Messages",
-      icon: {},
+      icon: {messages_logo},
       route: "/messages",
     },
     {
       id: 6,
       Name: "Notifications",
-      icon: {},
+      icon: <IoMdHeartEmpty />,
       route: "/notifications",
     },
     {
       id: 7,
       Name: "Create",
-      icon: {},
+      icon: {create_logo},
       route: "/create",
     },
     {
       id: 8,
       Name: "Profile",
-      icon: {},
+      icon: {profile_logo},
       route: "/profile",
     },
     {
       id: 9,
       Name: "Threads",
-      icon: {},
+      icon: <FaThreads />,
       route: "/threads",
     },
     {
