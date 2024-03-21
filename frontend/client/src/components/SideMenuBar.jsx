@@ -10,7 +10,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import {create_logo} from "../images/insta-create-logo.png";
 import {profile_logo} from "../images/insta-profile-logo.png";
 import { FaThreads } from "react-icons/fa6";
-
+import { LuMenu } from "react-icons/lu";
 
 const SideMenuBar = () => {
 
@@ -74,7 +74,7 @@ const SideMenuBar = () => {
     {
       id: 10,
       Name: "More",
-      icon: {},
+      icon: <LuMenu />,
       route: "/more",
     }
   ]
