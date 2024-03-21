@@ -6,7 +6,6 @@ import { IoIosSearch } from "react-icons/io";
 import { MdOutlineExplore } from "react-icons/md";
 import { MdVideoLibrary } from "react-icons/md";
 
-
 const SideMenuBar = () => {
 
   const navigate = useNavigate();
@@ -15,25 +14,25 @@ const SideMenuBar = () => {
     {
       id: 1,
       Name: "Home",
-      icon: {},
+      icon: <IoMdHome />,
       route: "/home",
     },
     {
       id: 2,
       Name: "Search",
-      icon: {},
+      icon: <IoIosSearch />,
       route: "/search",
     },
     {
       id: 3,
       Name: "Explore",
-      icon: {},
+      icon: <MdOutlineExplore />,
       route: "/explore",
     },
     {
       id: 4,
       Name: "Reels",
-      icon: {},
+      icon: <MdVideoLibrary />,
       route: "/reels",
     },
     {
