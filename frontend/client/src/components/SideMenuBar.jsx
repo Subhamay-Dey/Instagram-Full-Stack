@@ -11,6 +11,8 @@ import create from "../images/insta-create-logo.png";
 import profile_logo from "../images/insta-profile-logo.png";
 import { FaThreads } from "react-icons/fa6";
 import { LuMenu } from "react-icons/lu";
+import { BiSolidMessageRoundedDetail } from "react-icons/bi";
+import { MdOutlineVideoLibrary } from "react-icons/md";
 
 const SideMenuBar = () => {
 
@@ -36,13 +38,15 @@ const SideMenuBar = () => {
     {
       id: 4,
       Name: "Reels",
-      icon: reels_logo,
+      // icon: reels_logo,
+      icon: <MdOutlineVideoLibrary size={30}/>,
       route: "/reels",
     },
     {
       id: 5,
       Name: "Messages",
-      icon: messages_logo,
+      // icon: messages_logo,
+      icon: <BiSolidMessageRoundedDetail size={30}/>,
       route: "/messages",
     },
     {
