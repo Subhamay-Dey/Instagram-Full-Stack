@@ -92,7 +92,7 @@ const SideMenuBar = () => {
               <img src={instalogo1} alt="" width={200} className='pt-4 pl-2'/>
             </div>
             {menu.map(({id, Name, icon, route}) => (
-                <div className='flex gap-3 mt-6 w-fit cursor-pointer hover:bg-slate-400 rounded-xl px-6 duration-300 py-2 select-none pl-8 items-center' key={id}>
+                <div className='flex gap-3 mt-6 w-[200px] mx-4 cursor-pointer hover:bg-slate-400 rounded-xl px-6 duration-300 py-2 select-none pl-8 items-center' key={id}>
                     <div className='text-white'>{icon}</div>
                     <h1 className='mb-1 text-xl text-white'>{Name}</h1>
                 </div>
