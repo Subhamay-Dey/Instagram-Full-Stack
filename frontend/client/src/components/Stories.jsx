@@ -10,7 +10,7 @@ const Stories = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 select-none">
       <h1 className="text-xl font-semibold mb-4">Stories</h1>
       <div className="flex overflow-x-auto space-x-4">
         {storiesData.map((story) => (
