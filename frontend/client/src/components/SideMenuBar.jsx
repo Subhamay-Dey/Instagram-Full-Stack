@@ -13,6 +13,8 @@ import { FaThreads } from "react-icons/fa6";
 import { LuMenu } from "react-icons/lu";
 import { BiSolidMessageRoundedDetail } from "react-icons/bi";
 import { MdOutlineVideoLibrary } from "react-icons/md";
+import { MdOutlineAddBox } from "react-icons/md";
+import { CgProfile } from "react-icons/cg";
 
 const SideMenuBar = () => {
 
@@ -58,13 +60,15 @@ const SideMenuBar = () => {
     {
       id: 7,
       Name: "Create",
-      icon: create,
+      // icon: create,
+      icon: <MdOutlineAddBox size={30}/>,
       route: "/create",
     },
     {
       id: 8,
       Name: "Profile",
-      icon: profile_logo,
+      // icon: profile_logo,
+      icon: <CgProfile size={30}/>,
       route: "/profile",
     },
     {
@@ -88,7 +92,7 @@ const SideMenuBar = () => {
               <img src={instalogo1} alt="" width={200} className='pt-4 pl-2'/>
             </div>
             {menu.map(({id, Name, icon, route}) => (
-                <div className='flex gap-3 mt-6 w-fit cursor-pointer hover:bg-slate-200 rounded-full px-3 duration-300 py-2 select-none pl-8 items-center' key={id}>
+                <div className='flex gap-3 mt-6 w-fit cursor-pointer hover:bg-slate-400 rounded-xl px-6 duration-300 py-2 select-none pl-8 items-center' key={id}>
                     <div className='text-white'>{icon}</div>
                     <h1 className='mb-1 text-xl text-white'>{Name}</h1>
                 </div>
