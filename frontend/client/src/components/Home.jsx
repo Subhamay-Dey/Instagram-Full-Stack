@@ -4,7 +4,9 @@ import SideMenuBar from './SideMenuBar'
 const Home = () => {
   return (
     <>
-      <SideMenuBar/>
+      <div className='flex'>
+        <SideMenuBar/>
+      </div>
     </>
   )
 }
