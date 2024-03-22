@@ -89,7 +89,7 @@ const SideMenuBar = () => {
 
   return (
     <>
-        <div className='w-[300px] h-screen bg-black fixed'>
+        <div className='w-[300px] h-screen bg-black'>
             <div>
               <img src={instalogo1} alt="" width={200} className='pt-4 pl-2'/>
             </div>
