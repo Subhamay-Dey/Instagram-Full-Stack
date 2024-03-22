@@ -1,6 +1,6 @@
 import React from 'react';
 import instalogo1  from "../images/insta-logo1.jpg";
-import {useNavigate} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { IoMdHome } from "react-icons/io";
 import { IoIosSearch } from "react-icons/io";
 import { MdOutlineExplore } from "react-icons/md";
@@ -17,6 +17,8 @@ import { MdOutlineAddBox } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 
 const SideMenuBar = () => {
+
+  const navigate = useNavigate();
 
   const menu = [
     {
@@ -87,12 +89,12 @@ const SideMenuBar = () => {
 
   return (
     <>
-        <div className='w-[300px] h-screen bg-black'>
+        <div className='w-[300px] h-screen bg-black fixed'>
             <div>
               <img src={instalogo1} alt="" width={200} className='pt-4 pl-2'/>
             </div>
             {menu.map(({id, Name, icon, route}) => (
-                <div className='flex gap-3 mt-6 w-[200px] mx-4 cursor-pointer hover:bg-slate-400 rounded-xl px-6 duration-300 py-2 select-none pl-8 items-center' key={id}>
+                <div className='flex gap-3 mt-6 w-[200px] mx-4 cursor-pointer hover:bg-slate-400 rounded-xl px-6 duration-300 py-2 select-none pl-8 items-center' key={id} onClick={() => navigate(route)}>
                     <div className='text-white'>{icon}</div>
                     <h1 className='mb-1 text-xl text-white'>{Name}</h1>
                 </div>
