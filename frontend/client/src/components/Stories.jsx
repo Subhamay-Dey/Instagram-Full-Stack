@@ -5,7 +5,8 @@ const Stories = () => {
     { id: 1, username: 'user1', image: 'https://via.placeholder.com/150/FF5733/FFFFFF?text=User1' },
     { id: 2, username: 'user2', image: 'https://via.placeholder.com/150/FFC300/FFFFFF?text=User2' },
     { id: 3, username: 'user3', image: 'https://via.placeholder.com/150/C70039/FFFFFF?text=User3' },
-    { id: 4, username: 'user4', image: 'https://via.placeholder.com/150/900C3F/FFFFFF?text=User4' }
+    { id: 4, username: 'user4', image: 'https://via.placeholder.com/150/900C3F/FFFFFF?text=User4' },
+    { id: 5, username: 'user5', image: 'https://via.placeholder.com/150/581845/FFFFFF?text=User5' },
   ];
 
   return (
