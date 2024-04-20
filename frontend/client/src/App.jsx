@@ -9,6 +9,7 @@ import Profilepage from "./components/Profilepage";
 function App() {
 
   return (
+    
     <ContextProvider>
       <Routes>
         <Route path="/register" element={<SignUp/>}/>

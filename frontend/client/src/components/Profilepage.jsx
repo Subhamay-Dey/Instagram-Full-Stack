@@ -3,6 +3,7 @@ import SideMenuBar from './SideMenuBar'
 import Profile from './Profile'
 
 function Profilepage() {
+
   return (
     <main className=''>
         <SideMenuBar/>
