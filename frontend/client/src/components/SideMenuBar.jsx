@@ -89,7 +89,8 @@ const SideMenuBar = () => {
 
   return (
     <>
-        <div className='w-[300px] h-screen bg-black'>
+    <div className='flex flex-row'>
+        <div className='w-[300px] h-screen bg-black '>
             <div>
               <img src={instalogo1} alt="" width={200} className='pt-4 pl-2'/>
             </div>
@@ -99,10 +100,11 @@ const SideMenuBar = () => {
                     <h1 className='mb-1 text-xl text-white'>{Name}</h1>
                 </div>
             ))}
-
-          <div className=''></div>
             
         </div>
+        <div className='px-[0.4px] py-full bg-gray-600'>
+        </div>
+      </div>
     </>
   )
 }
