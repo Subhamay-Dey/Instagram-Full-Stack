@@ -9,7 +9,13 @@ import taggicon from "../images/taggicon.png";
 
 import camerapic from "../images/camerapic.png";
 
+import UseContext from '../contexts/UseContext';
+import { useContext } from 'react';
+import { ToastContainer } from 'react-toastify';
+
 const Profile = () => {
+
+  const {handleLogout} = useContext(UseContext);
 
   // const profile_menu = [
   //   {
@@ -31,6 +37,7 @@ const Profile = () => {
 
   return (
     <>
+    <ToastContainer/>
     <div className='flex flex-row'>
     <SideMenuBar/>
           <div className='w-[1614px] h-screen bg-black relative'>
@@ -38,7 +45,7 @@ const Profile = () => {
             <div className='absolute top-[8.3%] left-[39%] text-[26px] text-white cursor-pointer'>subhamaydey2005</div>
             <button className='absolute top-[8.3%] left-[54%] text-white px-6 py-2 bg-gray-600 rounded-lg font-medium'>Edit Profile</button>
             <button className='absolute top-[8.3%] left-[62.4%] text-white px-6 py-2 bg-gray-600 rounded-lg font-medium ml-[4px]'>View Archive</button>
-            <button className=''>Log Out</button>
+            <button className='absolute top-[8.3%] left-[76%] text-white px-6 py-2 bg-red-600 hover:bg-red-500 rounded-lg font-medium ml-[4px]' href="/logout" onClick={handleLogout}>Log Out</button>
             <div className='absolute top-[15.6%] left-[39%] text-white space-x-12 font-medium text-[20px] flex flex-row'>
               <div className="cursor-pointer">0 posts</div>
               <div className='cursor-pointer'>5 followers</div>
