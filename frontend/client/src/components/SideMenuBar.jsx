@@ -24,65 +24,65 @@ const SideMenuBar = () => {
     {
       id: 1,
       Name: "Home",
-      icon: <IoMdHome size={30}/>,
+      icon: <IoMdHome size={35}/>,
       route: "/home",
     },
     {
       id: 2,
       Name: "Search",
-      icon: <IoIosSearch size={30}/>,
+      icon: <IoIosSearch size={35}/>,
       route: "/search",
     },
     {
       id: 3,
       Name: "Explore",
-      icon: <MdOutlineExplore size={30}/>,
+      icon: <MdOutlineExplore size={35}/>,
       route: "/explore",
     },
     {
       id: 4,
       Name: "Reels",
       // icon: reels_logo,
-      icon: <MdOutlineVideoLibrary size={30}/>,
+      icon: <MdOutlineVideoLibrary size={35}/>,
       route: "/reels",
     },
     {
       id: 5,
       Name: "Messages",
       // icon: messages_logo,
-      icon: <BiSolidMessageRoundedDetail size={30}/>,
+      icon: <BiSolidMessageRoundedDetail size={35}/>,
       route: "/messages",
     },
     {
       id: 6,
       Name: "Notifications",
-      icon: <IoMdHeartEmpty size={30}/>,
+      icon: <IoMdHeartEmpty size={35}/>,
       route: "/notifications",
     },
     {
       id: 7,
       Name: "Create",
       // icon: create,
-      icon: <MdOutlineAddBox size={30}/>,
+      icon: <MdOutlineAddBox size={35}/>,
       route: "/create",
     },
     {
       id: 8,
       Name: "Profile",
       // icon: profile_logo,
-      icon: <CgProfile size={30}/>,
+      icon: <CgProfile size={35}/>,
       route: "/profile",
     },
     {
       id: 9,
       Name: "Threads",
-      icon: <FaThreads size={30}/>,
+      icon: <FaThreads size={35}/>,
       route: "/threads",
     },
     {
       id: 10,
       Name: "More",
-      icon: <LuMenu size={30}/>,
+      icon: <LuMenu size={35}/>,
       route: "/more",
     }
   ]
@@ -95,7 +95,7 @@ const SideMenuBar = () => {
               <img src={instalogo1} alt="" width={200} className='pt-4 pl-2'/>
             </div>
             {menu.map(({id, Name, icon, route}) => (
-                <div className='flex gap-3 mt-6 w-[200px] mx-4 cursor-pointer hover:bg-slate-400 rounded-xl px-6 duration-300 py-2 select-none pl-8 items-center' key={id} onClick={() => navigate(route)}>
+                <div className='flex gap-5 mt-6 w-[200px] mx-4 cursor-pointer hover:bg-slate-400 rounded-xl px-6 duration-300 py-2 select-none pl-4 items-center' key={id} onClick={() => navigate(route)}>
                     <div className='text-white'>{icon}</div>
                     <h1 className='mb-1 text-xl text-white'>{Name}</h1>
                 </div>
