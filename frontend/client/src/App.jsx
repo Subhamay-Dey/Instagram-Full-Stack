@@ -3,6 +3,7 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import ContextProvider from "./contexts/ContextProvider";
+import Profile from "./components/Profile";
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
         <Route path="/register" element={<SignUp/>}/>
         <Route path="/" element={<Login/>}/>
         <Route path="/home" element={<Home/>}/>
+        <Route path="/profile" element={<Profile/>}/>
       </Routes>
     </ContextProvider>
   )
